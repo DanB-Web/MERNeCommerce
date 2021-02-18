@@ -1,0 +1,22 @@
+{
+  "name": "mernecommerce",
+  "version": "1.0.0",
+  "description": "- React\r - React-Bootstrap (npm package)\r - Bootswatch (download minified css from site)\r - React Router DOM (npm package)\r - React Router Bootstrap (npm package)\r - Font Awesome (cdnjs.com)",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanB-Web/MERNeCommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanB-Web/MERNeCommerce/issues"
+  },
+  "homepage": "https://github.com/DanB-Web/MERNeCommerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
