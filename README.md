@@ -9,6 +9,10 @@
 - React Router Bootstrap (npm package)
 - Font Awesome (cdnjs.com)
 
+## Backend
+
+- Express
+
 ## Workflow
 
 - Commitizen (npm package)
