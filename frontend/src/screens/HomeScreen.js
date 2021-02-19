@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import { Row, Col } from 'react-bootstrap';
 
 import Product from '../components/Product';
 
-import products from '../products';
-
 const HomeScreen = () => {
+
+  const [products, setProducts] = useState([]);
+
+  //Note you cannot make useEffect callback async, but can place an async inside
+  //Proxy prop set in package.json to prevent cors
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get('http://localhost:5000/api/products');
+      setProducts(data);
+    }
+    fetchProducts();
+  }, []);
+
+
 
   return (
     <>
