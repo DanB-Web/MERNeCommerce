@@ -17,6 +17,7 @@
 - Mongoose
 - Colors (npm package to color console logs)
 - Bcryptjs (Note NOT Bcrypt - had issues within Node)
+- Express-Async-Handler - custom error handling for routes
 
 ## Workflow
 
