@@ -14,6 +14,8 @@
 
 - Express
 - Dotenv
+- Mongoose
+- Colors (npm package to color console logs)
 
 ## Workflow
 
