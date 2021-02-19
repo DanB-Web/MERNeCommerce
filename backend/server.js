@@ -25,11 +25,11 @@ connectDB();
 
 //Middleware - functions that you give access to the req/res objects
 app.use(
-  cors(),
+  cors()
 );
 
 //Routes
-app.get('/test', (_, res) => res.json('Success!'))
+app.get('/test', (_, res) => res.json('Success!'));
 app.use('/api/products', productRoutes);
 
 //Custom Middleware
