@@ -1,36 +1,40 @@
+//Dependencies
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import colors from 'colors';
 
-import connectDB from './config/db.js';
-
-import products from './data/products.js';
-
 dotenv.config();
 
-connectDB();
+//Middleware
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
+//Routes
+import productRoutes from './routes/productRoutes.js'
+
+//Database and models
+import connectDB from './config/db.js';
+
+//Initialise and variables
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MODE = process.env.NODE_ENV || 'duh';
 
+//DB connection
+connectDB();
+
+//Middleware - functions that you give access to the req/res objects
 app.use(
-  cors()
+  cors(),
 );
 
-app.get('/', (_, res) => {
-  res.send('API is running...');
-});
+//Routes
+app.get('/test', (_, res) => res.json('Success!'))
+app.use('/api/products', productRoutes);
 
-app.get('/api/products', (_, res) => {
-  res.json(products);
-});
-
-app.get('/api/products/:id', (req, res) => {
-  const product = products.find(p => p._id === req.params.id);
-  res.json(product);
-});
+//Custom Middleware
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server running in ${MODE} mode on port ${PORT}`.yellow.bold);
