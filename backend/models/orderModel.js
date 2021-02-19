@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 const orderSchema = mongoose.Schema({
   //Who bought product
   user: {
-    type: mongoose.Schema.Types.ObjecyId,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: 'User'
   },

@@ -1,5 +1,7 @@
 import bcrypt from 'bcryptjs';
 
+//Using hashSync method since this is just seeding data
+
 const users = [
   {
     name: 'Admin User',
