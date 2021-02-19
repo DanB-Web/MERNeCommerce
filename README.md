@@ -14,6 +14,9 @@
 
 - Express
 - Dotenv
+- Mongoose
+- Colors (npm package to color console logs)
+- Bcryptjs (Note NOT Bcrypt - had issues within Node)
 
 ## Workflow
 
