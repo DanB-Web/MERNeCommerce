@@ -8,6 +8,10 @@
 - Bootswatch (download minified css from site)
 - React Router DOM (npm package)
 - React Router Bootstrap (npm package)
+- Redux (state manager)
+- React-redux (links Redux with React)
+- Redux-think (async requests from Redux)
+- Redux-devtools-extension (easy config for Redux dev tools)
 - Font Awesome (cdnjs.com)
 
 ## Backend
