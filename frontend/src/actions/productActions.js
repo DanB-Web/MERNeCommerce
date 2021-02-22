@@ -9,7 +9,7 @@ import {
   PRODUCT_DETAILS_FAIL
 } from '../constants/productConstants';
 
-const BACKEND_URL = 'http://localhost:5000/'
+const BACKEND_URL = 'http://localhost:5000/';
 
 //Redux thunk allows us to use async actions inside dispatch
 export const listProducts = () => async (dispatch) => {
