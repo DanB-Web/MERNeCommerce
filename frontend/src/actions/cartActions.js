@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { CART_ADD_ITEM } from '../constants/cartConstants';
+
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/cartConstants';
 
 const BACKEND_URL = 'http://localhost:5000/';
 
@@ -9,6 +10,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
   const { data } = await axios.get(`${BACKEND_URL}api/products/${id}`);
 
   //Add item to global cart storage (with extra details from BE)
+  
   dispatch({
     type: CART_ADD_ITEM,
     payload: {
@@ -21,6 +23,19 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
     }
   });
 
+  console.log('state', getState());
   //Add item to local storage for memory
-  localStorage.setItems('cartItems', JSON.stringify(getState().cart.cartItems));
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+  //localStorage.setItem('cartItems', JSON.stringify(getState().productDetails.product));
+}
+
+export const removeFromCart = (id) => (dispatch, getState) => {
+  dispatch({
+    type: CART_REMOVE_ITEM,
+    payload: id
+  })
+
+  console.log('Remove from cart', getState().cart.cartItems);
+
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 }
