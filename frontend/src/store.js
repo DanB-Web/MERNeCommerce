@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';  //Allows for async actions inside reducers
 //Import reducers
 import { productListReducer, productDetailsReducer } from './reducers/productReducers.js';
 import { cartReducer } from './reducers/cartReducers.js';
-import { userLoginReducer } from './reducers/userReducers.js'
+import { userLoginReducer, userRegisterReducer } from './reducers/userReducers.js'
 
 //Allows for Redux devtools
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -15,7 +15,8 @@ const reducer = combineReducers({
   productList: productListReducer,
   productDetails : productDetailsReducer,
   cart: cartReducer,
-  userLogin: userLoginReducer
+  userLogin: userLoginReducer,
+  userRegister: userRegisterReducer
 });
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') 
