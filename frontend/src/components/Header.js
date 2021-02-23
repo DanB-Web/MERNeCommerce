@@ -1,4 +1,6 @@
 import React from 'react'
+import { Route, Link } from 'react-router-dom';
+
 import { LinkContainer } from 'react-router-bootstrap';
 
 import { Navbar, Nav, Container } from 'react-bootstrap';

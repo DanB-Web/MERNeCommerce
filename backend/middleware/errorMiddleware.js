@@ -5,6 +5,7 @@ const notFound = (req, res, next) => {
   next(error);
 }
 
+//Express handles any routes with four arguments as error handling middleware
 const errorHandler = (err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   res.status(statusCode);

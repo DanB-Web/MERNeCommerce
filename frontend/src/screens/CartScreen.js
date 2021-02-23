@@ -8,9 +8,9 @@ import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 
 import Message from '../components/Message';
 
-const CartScreen = ({ match, location, history }) => {
+const CartScreen = ({ match, location, history, state }) => {
 
-  const store = useStore();
+  
   const productId = match.params.id;
   
   const qty = location.search ? Number(location.search.split('=')[1]) : 1;
@@ -28,6 +28,11 @@ const CartScreen = ({ match, location, history }) => {
     }   
   }, [dispatch, productId, qty]);
 
+  const store = useStore();
+  useEffect(() => {
+    console.log(store.getState());
+  }, [state])
+
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   }
@@ -42,7 +47,7 @@ const CartScreen = ({ match, location, history }) => {
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
         <Message>Your cart is empty 
-          <Link to='/'>Go back</Link>
+          <Link to="/">Go back</Link>
         </Message>) : (
         <ListGroup variant="flush">
           {cartItems.map(item => (
@@ -95,7 +100,7 @@ const CartScreen = ({ match, location, history }) => {
                   disabled={cartItems.length=0} 
                   onClick={checkOutHandler}
                   >Proceed to Checkout</Button>
-              </ListGroup.Item>           
+              </ListGroup.Item>          
           </ListGroup>
         </Card>                    
       </Col>
