@@ -6,16 +6,17 @@ import colors from 'colors';
 
 dotenv.config();
 
-//Middleware
-import { notFound, errorHandler } from './middleware/errorMiddleware.js';
-
 //Routes
-import productRoutes from './routes/productRoutes.js'
+import productRoutes from './routes/productRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+
+//Custom Middleware
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 //Database and models
 import connectDB from './config/db.js';
 
-//Initialise and variables
+//Initialise app and variables
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MODE = process.env.NODE_ENV || 'duh';
@@ -25,17 +26,20 @@ connectDB();
 
 //Middleware - functions that you give access to the req/res objects
 app.use(
+  express.json(),
   cors()
 );
 
-//Routes
+//Normal Routes
 app.get('/test', (_, res) => res.json('Success!'));
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
-//Custom Middleware
+//Custom Error Middleware - make sure it is after the last routes
 app.use(notFound);
 app.use(errorHandler);
 
+//Start server
 app.listen(PORT, () => {
   console.log(`Server running in ${MODE} mode on port ${PORT}`.yellow.bold);
 });
