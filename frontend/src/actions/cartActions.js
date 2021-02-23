@@ -9,9 +9,6 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
   //Get product data from backend
   const { data } = await axios.get(`${BACKEND_URL}api/products/${id}`);
 
-  //let state = getState();
-  //console.log('pre state', state);
-
   //Add item to global cart storage (with extra details from BE)
   dispatch({
     type: CART_ADD_ITEM,
@@ -25,11 +22,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
     }
   });
 
-  //state = getState();
-  //console.log('post state', state);
-  //Add item to local storage for memory
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
-  //localStorage.setItem('cartItems', JSON.stringify(getState().productDetails.product));
 }
 
 export const removeFromCart = (id) => (dispatch, getState) => {
