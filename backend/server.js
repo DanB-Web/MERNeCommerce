@@ -9,6 +9,7 @@ dotenv.config();
 //Routes
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 //Custom Middleware
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
@@ -34,6 +35,7 @@ app.use(
 app.get('/test', (_, res) => res.json('Success!'));
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
 
 //Custom Error Middleware - make sure it is after the last routes
 app.use(notFound);
