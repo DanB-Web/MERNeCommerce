@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 
 //Create the User Schema
 const orderSchema = mongoose.Schema({
-  //Who bought product
+
+  //Who bought product - 'relationship'
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
