@@ -11,7 +11,11 @@ import {
   userDetailsReducer, 
   userUpdateProfileReducer
 } from './reducers/userReducers.js'
-import { orderCreateReducer } from './reducers/orderReducers.js';
+import { 
+  orderCreateReducer, 
+  orderDetailsReducer,
+  orderPayReducer 
+} from './reducers/orderReducers.js';
 
 //Allows for Redux devtools
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -25,7 +29,9 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
   userUpdateProfile : userUpdateProfileReducer,
-  orderCreate: orderCreateReducer
+  orderCreate: orderCreateReducer,
+  orderDetails: orderDetailsReducer,
+  orderPay: orderPayReducer
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') 
