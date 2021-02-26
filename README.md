@@ -13,6 +13,7 @@
 - Redux-think (async requests from Redux)
 - Redux-devtools-extension (easy config for Redux dev tools)
 - Font Awesome (cdnjs.com)
+- react-paypal-button-v2 (PayPal styled buttons for React)
 
 ## Backend
 
